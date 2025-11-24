@@ -29,7 +29,8 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 40px;
+    gap: clamp(20px, 5vw, 50px); /* адаптивный отступ между кнопками */
+    margin-top: clamp(30px, 10vh, 100px); /* адаптивный верхний отступ */
     margin: 20vh;
 }
 
@@ -103,4 +104,60 @@ body {
 }
 .introduction{
     color: #dbe8ff;
+    margin: 3vh ;
+}
+.introduction h1 {
+    font-size: clamp(24px, 5vw, 72px); /* минимум 24px, максимум 72px, адаптация по ширине экрана */
+}
+
+.introduction h3 {
+    font-size: clamp(16px, 3vw, 32px);
+}
+
+.introduction ol li {
+    font-size: clamp(14px, 2.5vw, 24px);
+}
+.description img {
+    float: left;              /* картинка слева */
+    width: 150px;             /* ширина картинки */
+    height: auto;             /* сохраняем пропорции */
+    margin: 0 20px 20px 0;    /* отступ справа и снизу */
+}
+
+.description p {
+    margin: 0;
+}
+
+.king h2{
+    color: #7dc8fb;
+}
+.king, .pieces_as_bluelock{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #dbe8ff;
+    width: 100vw;                  /* растягиваем на всю ширину экрана */
+    max-width: 100%;                /* чтобы не выходило за экран */
+    border-top: 2px solid #dbe8ff;
+    border-bottom: 2px solid #dbe8ff;
+    box-sizing: border-box;
+    padding: 3vh;                  /* внутренний отступ */
+    margin: 3vh 0;                  /* вертикальные отступы */
+    font-size: clamp(14px, 2.5vw, 24px); /* адаптивный текст */
+    line-height: 1.5; /* расстояние между строк для читаемости */
+}
+
+.king img {
+    width: 150px;       /* фиксированная ширина */
+    height: auto;
+    flex-shrink: 0;     /* запрещаем сжиматься */
+}
+.king p ,.pieces_as_bluelock p{
+    margin: 0;
+}
+.pieces_as_bluelock img{
+    border-radius: 15%;
+    width: 300px;
+    height: auto;
+    flex-shrink: 0;
 }
