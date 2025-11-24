@@ -133,10 +133,10 @@ body {
     margin: 0;
 }
 
-.king h2 ,.queen h2{
+.king h2 ,.queen h2, .rook h2, .bishop h2, .knight h2, .pawn h2{
     color: #7dc8fb;
 }
-.king, .pieces_as_bluelock, .queen{
+.king, .pieces_as_bluelock, .queen, .rook, .bishop, .knight, .pawn{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -152,12 +152,12 @@ body {
     line-height: 1.5; /* расстояние между строк для читаемости */
 }
 
-.king img{
+.king img, .queen img, .rook img ,.bishop img, .knight img, .pawn img{
     width: 150px;       /* фиксированная ширина */
     height: auto;
     flex-shrink: 0;     /* запрещаем сжиматься */
 }
-.king p ,.pieces_as_bluelock p,.queen p{
+.king p ,.pieces_as_bluelock p,.queen p, .rook p , .bishop p , .knight p, .pawn p{
     margin: 0;
 }
 .pieces_as_bluelock img{
@@ -166,43 +166,144 @@ body {
     height: auto;
     flex-shrink: 0;
 }
-.king button img , .queen button img{
-    /* базовые стили */
-    transition: filter 0.3s ease; /* для эффекта свечения */
-}
-
-.queen button img {
-    display: block;      /* чтобы не было inline-артефактов */
+.king button img , .queen button img, .rook button img, .bishop button img, .knight button img, .pawn button img{
+   display: block;
     transition: filter 0.3s ease, box-shadow 0.3s ease;
+    transform-origin: center;
 }
 
-/* Анимация свечения — только картинка */
-.queen button:hover img {
-    animation: glow 1.5s ease-in-out infinite alternate;
-}
 
-@keyframes glow {
-    0% {
-        filter: drop-shadow(0 0 10px #FFD700);
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-    }
-    50% {
-        filter: drop-shadow(0 0 20px #FFD700);
-        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-    }
-    100% {
-        filter: drop-shadow(0 0 10px #FFD700);
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-    }
-}
-
-.king button:hover img{
-    animation: pulse 1s infinite;
-    animation-delay: 0.5s; /* задержка перед началом анимации */
+/* Анимация Короля — пульсация синего свечения */
+.king button:hover img {
+    animation: kingPulse 1s infinite;
     filter: drop-shadow(0 0 15px #3A9BFF);
 }
 
-@keyframes pulse {
+@keyframes kingPulse {
     0%, 100% { transform: scale(1.1); }
     50% { transform: scale(1.15); }
+}
+
+/* Анимация Ферзя — динамичное мерцание золота */
+.queen button:hover img {
+    animation: royalSparkle 1.2s ease-in-out infinite;
+    filter: brightness(1.3) drop-shadow(0 0 10px #ffd700);
+}
+
+@keyframes royalSparkle {
+    0% {
+        filter: brightness(1.1) drop-shadow(0 0 8px #ffea00);
+        transform: rotate(0deg) scale(1);
+    }
+    30% {
+        filter: brightness(1.7) drop-shadow(0 0 18px #ffee58);
+        transform: rotate(-1deg) scale(1.05);
+    }
+    70% {
+        filter: brightness(1.4) drop-shadow(0 0 25px #fff176);
+        transform: rotate(1deg) scale(1.08);
+    }
+    100% {
+        filter: brightness(1.1) drop-shadow(0 0 10px #ffea00);
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* Анимация Ладьи — мощное синие сияние в том же стиле, что у ферзя */
+.rook button:hover img {
+    animation: rookGlow 1.2s ease-in-out infinite;
+    filter: brightness(1.3) drop-shadow(0 0 10px #1E90FF);
+}
+
+@keyframes rookGlow {
+    0% {
+        filter: brightness(1.1) drop-shadow(0 0 8px #1E90FF);
+        transform: rotate(0deg) scale(1);
+    }
+    30% {
+        filter: brightness(1.7) drop-shadow(0 0 18px #1E90FF);
+        transform: rotate(-1deg) scale(1.05);
+    }
+    70% {
+        filter: brightness(1.4) drop-shadow(0 0 25px #1E90FF);
+        transform: rotate(1deg) scale(1.08);
+    }
+    100% {
+        filter: brightness(1.1) drop-shadow(0 0 10px #1E90FF);
+        transform: rotate(0deg) scale(1);
+    }
+}
+/* Анимация слона — плавное скользящее мерцание по диагонали */
+.bishop button:hover img {
+    animation: bishopGlide 1.5s ease-in-out infinite alternate;
+    filter: brightness(1.2) drop-shadow(0 0 8px #8A2BE2);
+}
+
+@keyframes bishopGlide {
+    0% {
+        transform: rotate(0deg) translate(0, 0) scale(1);
+        filter: brightness(1.1) drop-shadow(0 0 8px #8A2BE2);
+    }
+    25% {
+        transform: rotate(1deg) translate(2px, -2px) scale(1.03);
+        filter: brightness(1.3) drop-shadow(0 0 12px #9b30ff);
+    }
+    50% {
+        transform: rotate(-1deg) translate(-2px, 2px) scale(1.05);
+        filter: brightness(1.5) drop-shadow(0 0 15px #ba55d3);
+    }
+    75% {
+        transform: rotate(1deg) translate(2px, -2px) scale(1.03);
+        filter: brightness(1.3) drop-shadow(0 0 12px #9b30ff);
+    }
+    100% {
+        transform: rotate(0deg) translate(0, 0) scale(1);
+        filter: brightness(1.1) drop-shadow(0 0 8px #8A2BE2);
+    }
+}
+
+/* Анимация коня — динамичный прыжок света */
+.knight button:hover img {
+    animation: knight-leap 1.2s ease-in-out infinite alternate;
+    filter: brightness(1.2) drop-shadow(0 0 10px #8A2BE2);
+}
+
+@keyframes knight-leap {
+    0% {
+        transform: rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 8px #8A2BE2);
+    }
+    25% {
+        transform: rotate(-5deg) scale(1.05);
+        filter: drop-shadow(0 0 20px #9370DB);
+    }
+    50% {
+        transform: rotate(5deg) scale(1.08);
+        filter: drop-shadow(0 0 28px #8A2BE2);
+    }
+    75% {
+        transform: rotate(-3deg) scale(1.05);
+        filter: drop-shadow(0 0 20px #9370DB);
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 8px #8A2BE2);
+    }
+}
+/* АНИМАЦИЯ ПЕШКИ — мягкое мерцание без движения */
+.pawn button:hover img {
+    animation: pawnGlow 1.5s ease-in-out infinite alternate;
+    filter: brightness(1.2) drop-shadow(0 0 10px #32CD32);
+}
+
+@keyframes pawnGlow {
+    0% {
+        filter: brightness(1.0) drop-shadow(0 0 5px #32CD32);
+    }
+    50% {
+        filter: brightness(1.5) drop-shadow(0 0 15px #32CD32);
+    }
+    100% {
+        filter: brightness(1.0) drop-shadow(0 0 5px #32CD32);
+    }
 }
