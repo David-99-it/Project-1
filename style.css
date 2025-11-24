@@ -117,21 +117,26 @@ body {
 .introduction ol li {
     font-size: clamp(14px, 2.5vw, 24px);
 }
-.description img {
-    float: left;              /* картинка слева */
-    width: 150px;             /* ширина картинки */
-    height: auto;             /* сохраняем пропорции */
+.description img, .description button{
+     float:left; 
+    width: 150px;
+    height: auto;
     margin: 0 20px 20px 0;    /* отступ справа и снизу */
 }
-
+.description button{
+    background: none;   /* убираем фон */
+    border: none;       /* убираем рамку */
+    padding: 0;         /* убираем внутренние отступы */
+    cursor: pointer;    /* курсор меняется на руку при наведении */
+}
 .description p {
     margin: 0;
 }
 
-.king h2{
+.king h2 ,.queen h2{
     color: #7dc8fb;
 }
-.king, .pieces_as_bluelock{
+.king, .pieces_as_bluelock, .queen{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -147,12 +152,12 @@ body {
     line-height: 1.5; /* расстояние между строк для читаемости */
 }
 
-.king img {
+.king img{
     width: 150px;       /* фиксированная ширина */
     height: auto;
     flex-shrink: 0;     /* запрещаем сжиматься */
 }
-.king p ,.pieces_as_bluelock p{
+.king p ,.pieces_as_bluelock p,.queen p{
     margin: 0;
 }
 .pieces_as_bluelock img{
@@ -160,4 +165,44 @@ body {
     width: 300px;
     height: auto;
     flex-shrink: 0;
+}
+.king button img , .queen button img{
+    /* базовые стили */
+    transition: filter 0.3s ease; /* для эффекта свечения */
+}
+
+.queen button img {
+    display: block;      /* чтобы не было inline-артефактов */
+    transition: filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Анимация свечения — только картинка */
+.queen button:hover img {
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 10px #FFD700);
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        filter: drop-shadow(0 0 20px #FFD700);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    100% {
+        filter: drop-shadow(0 0 10px #FFD700);
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+}
+
+.king button:hover img{
+    animation: pulse 1s infinite;
+    animation-delay: 0.5s; /* задержка перед началом анимации */
+    filter: drop-shadow(0 0 15px #3A9BFF);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1.1); }
+    50% { transform: scale(1.15); }
 }
