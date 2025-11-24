@@ -30,7 +30,7 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 40px;
-    margin-top: 30vh;
+    margin: 20vh;
 }
 
 /* Общий стиль кнопок */
@@ -48,16 +48,18 @@ body {
     z-index: 1;
     background: rgba(0,0,0,0.3);
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: all 0.5s ease-out;
 }
 
 /* Наведение */
-.buttons button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-    border-color: #68b0f3;
-    background: rgba(255,255,255,0.1);
+.tactics:hover ,.training:hover {
+    transform: scale(1.13) rotate(3deg) translate(5px, -20px) skewX(1deg);
+  box-shadow: 0 25px 30px rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+  filter: brightness(1.2);
+  background-color: #2940a8;
+  color: #ffffff;
 }
-
 /* Нажатие */
 .buttons button:active {
     transform: translateY(-8px); /* поднимается выше при клике */
@@ -98,4 +100,7 @@ body {
 
 .training:hover {
     border-color: #ffffff;
+}
+.introduction{
+    color: #dbe8ff;
 }
