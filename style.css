@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    background: linear-gradient(145deg,
+        #040404 0%,
+        #042484 30%,
+        #053a95 55%,
+        #0689e2 85%,
+        #7dc8fb 100%
+    );
+    background-color: #040404;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.bluelock-text {
+    font-family: 'Arial Black', sans-serif; /* жирный шрифт */
+    font-size: 72px;
+    color: #1A73E8; /* насыщенный синий цвет */
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    background: linear-gradient(180deg, #3A9BFF 0%, #0D47A1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 0 #0A2C5F, 4px 4px 0 #dbe8ff; /* имитация рваного/объемного эффекта */
+    padding: 10px 20px;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 30vh;
+}
+
+/* Общий стиль кнопок */
+.buttons button {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 24px;
+    padding: 15px 50px;
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background: rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* Наведение */
+.buttons button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    border-color: #68b0f3;
+    background: rgba(255,255,255,0.1);
+}
+
+/* Нажатие */
+.buttons button:active {
+    transform: translateY(-15px); /* поднимается выше при клике */
+    box-shadow: 0 12px 28px rgba(0,0,0,0.8);
+}
+
+/* Подсветка при наведении */
+.buttons button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.4s;
+    z-index: 0;
+    border-radius: 15px;
+}
+
+.buttons button:hover::after {
+    left: 0;
+}
+
+/* Синий стиль для первой кнопки */
+.tactics {
+    border-color: #68b0f3;
+}
+
+.tactics:hover {
+    border-color: #ffffff;
+}
+
+/* Красно-оранжевый акцент для второй кнопки */
+.training {
+    border-color: #ff7f50;
+}
+
+.training:hover {
+    border-color: #ffffff;
+}
