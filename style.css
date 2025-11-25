@@ -105,6 +105,7 @@ body {
 .introduction{
     color: #dbe8ff;
     margin: 3vh ;
+    font-family: 'Montserrat', sans-serif;
 }
 .introduction h1 {
     font-size: clamp(24px, 5vw, 72px); /* минимум 24px, максимум 72px, адаптация по ширине экрана */
@@ -116,6 +117,12 @@ body {
 
 .introduction ol li {
     font-size: clamp(14px, 2.5vw, 24px);
+}
+.description{
+    font-family: 'Montserrat', sans-serif;
+}
+.description ul{
+    margin: 10px;
 }
 .description img, .description button{
      float:left; 
@@ -132,7 +139,9 @@ body {
 .description p {
     margin: 0;
 }
-
+.description h3{
+    color:#68b0f3;
+}
 .king h2 ,.queen h2, .rook h2, .bishop h2, .knight h2, .pawn h2{
     color: #7dc8fb;
 }
@@ -165,6 +174,11 @@ body {
     width: 300px;
     height: auto;
     flex-shrink: 0;
+    margin: 20px 50px 10px 10px;
+}
+.pieces_as_bluelock h2{
+    color:#0689e2;
+    font-family: 'Montserrat', sans-serif;
 }
 .king button img , .queen button img, .rook button img, .bishop button img, .knight button img, .pawn button img{
    display: block;
@@ -306,4 +320,10 @@ body {
     100% {
         filter: brightness(1.0) drop-shadow(0 0 5px #32CD32);
     }
+}
+.pieces_as_bluelock img.kaiser {
+    width: 50%;        /* относительная ширина от родителя */
+    min-width: 200px;  /* минимальная ширина */
+    max-width: 500px;  /* максимальная ширина */
+    height: auto;      /* сохраняем пропорции */
 }
