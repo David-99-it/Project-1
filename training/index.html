@@ -1,12 +1,341 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тренировочная площадка</title>
-    <link rel="stylesheet" href="/Project-1/style.css">
+    <title>Bleach: Тренировочная Площадка</title>
+
+    <!-- Подключаем наш CSS файл -->
+    <link rel="stylesheet" href="../style.css">
+  
+    <style>
+        /* --- CSS Стили для Bleach страницы --- */
+
+        /* --- Стили для фона и общего вида --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333; /* Цвет основного текста */
+
+            /* Фон: Желто-белый градиент с черным */
+            background: linear-gradient(to bottom right, #fff8dc 0%, #f0e68c 50%, #1a1a1a 100%);
+            /* Или с фоновым изображением (раскомментируйте и добавьте ваше изображение): */
+            /* background-image: url('images/bleach_background_yellow.jpg'); */
+            /* background-color: #fffacd; */
+            /* background-blend-mode: multiply; */
+            /* background-size: cover; */
+            background-attachment: fixed; /* Фон не будет двигаться при прокрутке */
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный для читаемости */
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #a00 3px solid;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        header nav ul {
+            padding: 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        header nav li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        /* --- Стили для секций --- */
+        .container { 
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        section {
+            padding: 50px 20px;
+            background-color: rgba(20, 20, 20, 0.8); /* Темный фон для секций */
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        h1, h2, h3, h4 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff; /* Белый цвет заголовков */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            border-bottom: 2px solid #a00;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* --- Стили для тренировочной площадки --- */
+        .training-area p {
+            text-align: center;
+            font-size: 1.1em;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .practice-modes button {
+            background: #a00; /* Красная кнопка */
+            color: #fff;
+            padding: 12px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .practice-modes button:hover {
+            background: #d00; /* Более яркий красный */
+            transform: translateY(-2px);
+        }
+
+        #training-results {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            color: #eee;
+            text-align: center;
+            min-height: 100px;
+        }
+
+        #training-results h3 {
+            margin-top: 0;
+            color: #fff;
+        }
+
+        #training-message {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        /* --- Стили для персонажей --- */
+        .character-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .character-card {
+            background: rgba(40, 40, 40, 0.9);
+            border: 1px solid #555;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #ddd;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+
+        .character-card img {
+            width: 200px; /* Размер картинки, можете изменить */
+            height: 200px; /* Размер картинки, можете изменить */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #a00;
+        }
+
+        .character-card h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .character-card h4 {
+            color: #bbb;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .character-card ul {
+            list-style: disc;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .character-card li {
+            margin-bottom: 8px;
+            color: #eee;
+        }
+
+        .character-card strong {
+            color: #fff;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+
+        /* --- Адаптивность --- */
+        @media (max-width: 768px) {
+            header nav li {
+                display: block;
+                margin: 10px 0;
+            }
+            .character-card {
+                width: 80%; /* Карточки занимают 80% ширины на маленьких экранах */
+            }
+            section {
+                padding: 30px 15px; /* Немного уменьшаем отступы на мобильных */
+            }
+        }
+        /* --- Конец CSS Стили --- */
+    </style>
 </head>
 <body>
-    
+    <!-- === НАЧАЛО КОНТЕНТА BLEACH СТРАНИЦЫ === -->
+    <header>
+        <h1>Bleach: Тренировочная Площадка</h1>
+        <nav>
+            <ul>
+                <li><a href="#training-grounds">Тренировочная Площадка</a></li>
+                <li><a href="#characters">Персонажи</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="training-grounds">
+            <h2>Тренировочная Площадка</h2>
+            <div class="training-area">
+                <p>Добро пожаловать на тренировочную площадку! Здесь вы сможете отточить свои боевые навыки, изучая техники великих воинов.</p>
+                <div class="practice-modes">
+                    <h3>Режимы Тренировки:</h3>
+                    <button id="kihada-training">Тренировка Кихады (Духовной Энергии)</button>
+                    <button id="zanjutsu-training">Тренировка Заньюцу (Мастерства Меча)</button>
+                    <button id="hakkai-training">Тренировка Хакай (Разрушения)</button>
+                    <button id="kaido-training">Тренировка Кайдо (Целительства)</button>
+                </div>
+                <div id="training-results">
+                    <h3>Результаты Тренировки:</h3>
+                    <p id="training-message">Выберите режим тренировки, чтобы начать.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="characters">
+            <h2>Боевые Навыки Персонажей</h2>
+            <div class="character-list">
+                <div class="character-card">
+                    <img src="https://i.pinimg.com/236x/3c/56/84/3c56846fe03846ea76b6bbc52fd2eb78.jpg" alt="Ичиго Куросаки">
+                    <h3>Ичиго Куросаки</h3>
+                    <h4>Основные Навыки:</h4>
+                    <ul>
+                        <li><strong>Мастерство Меча (Занюцу):</strong> Превосходный фехтовальщик, использующий свою катану (Занпакто) с невероятной скоростью и силой.</li>
+                        <li><strong>Духовная Энергия (Кихада):</strong> Обладает огромным запасом духовной энергии, которую может использовать для атак, защиты и ускорения.</li>
+                        <li><strong>Гецуга Теншоу:</strong> Его фирменная атака, выпускающая мощный поток духовной энергии в форме полумесяца.</li>
+                        <li><strong>Банкай:</strong> Полное высвобождение силы своего Занпакто, значительно увеличивающее его боевые возможности.</li>
+                        <li><strong>Холо (Пустой):</strong> Способность использовать силы своего внутреннего Холо, что дает ему временное усиление и новые атаки.</li>
+                    </ul>
+                </div>
+
+                <div class="character-card">
+                    <img src="https://i.pinimg.com/736x/24/78/39/2478390e8e1463bfb81ea6e3f1af9ece.jpg" alt="Соске Айзен">
+                    <h3>Соске Айзен</h3>
+                    <h4>Основные Навыки:</h4>
+                    <ul>
+                        <li><strong>Гениальный Тактик:</strong> Мастер стратегии и обмана, всегда на несколько шагов впереди противников.</li>
+                        <li><strong>Мастерство Меча (Занюцу):</strong> Искусный мечник, использующий свой Занпакто Кёка Суйгэцу.</li>
+                        <li><strong>Кёка Суйгэцу (Зеркало Воды и Цветения):</strong> Его Занпакто обладает силой полного контроля над чувствами противника, создавая иллюзии и манипулируя их восприятием.</li>
+                        <li><strong>Кихада (Духовная Энергия):</strong> Обладает значительной духовной энергией, позволяющей ему использовать разрушительные техники.</li>
+                        <li><strong>Кайдо:</strong> Способность использовать техники целения (хотя редко проявляет это в бою, в основном фокусируется на атаке).</li>
+                        <li><strong>Гигантес:</strong> Мощная атака, основанная на иллюзиях и разрушительной силе.</li>
+                    </ul>
+                </div>
+
+                <div class="character-card">
+                    <img src="https://www.jwave.com.br/wp-content/uploads/2025/08/1e9c5acb370ba5884aca1f819229dfbf182e4d7a232423c7-900x506.jpg" alt="Рицуко Унохана">
+                    <h3>Рицуко Унохана (Женщина, которая лечит)</h3>
+                    <h4>Основные Навыки:</h4>
+                    <ul>
+                        <li><strong>Мастер Целительства (Кайдо):</strong> Считается лучшим целителем в Обществе Душ, способна исцелять самые тяжелые раны.</li>
+                        <li><strong>Кихада (Духовная Энергия):</strong> Обладает глубоким пониманием духовной энергии, используя ее как для лечения, так и для мощных атак.</li>
+                        <li><strong>Мастерство Меча (Zanjutsu):</strong> Не стоит недооценивать ее боевые навыки. В прошлом была чрезвычайно опасной и безжалостной мечницей.</li>
+                        <li><strong>Миназуки:</strong> Ее Занпакто, который может трансформироваться в существо, способное лечить или наносить урон.</li>
+                        <li><strong>Техники Быстрого Восстановления:</strong> Способна быстро восстанавливать силы как себе, так и другим.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Bleach Fan Site. Все права защищены.</p>
+    </footer>
+    <!-- === КОНЕЦ КОНТЕНТА BLEACH СТРАНИЦЫ === -->
+
+    <script>
+        /* --- JavaScript для Bleach страницы --- */
+        document.addEventListener('DOMContentLoaded', () => {
+            const trainingMessage = document.getElementById('training-message');
+            const kihadaButton = document.getElementById('kihada-training');
+            const zanjutsuButton = document.getElementById('zanjutsu-training');
+            const hakkaiButton = document.getElementById('hakkai-training');
+            const kaidoButton = document.getElementById('kaido-training');
+
+            kihadaButton.addEventListener('click', () => {
+                trainingMessage.textContent = "Вы практикуете контроль духовной энергии. Представьте, как она наполняет вас, готовясь к мощным атакам!";
+                trainingMessage.style.color = '#00cc00';
+            });
+
+            zanjutsuButton.addEventListener('click', () => {
+                trainingMessage.textContent = "Вы оттачиваете владение мечом. Каждый взмах, каждый блок - шаг к совершенству!";
+                trainingMessage.style.color = '#0099cc';
+            });
+
+            hakkaiButton.addEventListener('click', () => {
+                trainingMessage.textContent = "Вы концентрируете энергию для разрушения. Пусть ваша сила сметает все препятствия!";
+                trainingMessage.style.color = '#cc0000';
+            });
+
+            kaidoButton.addEventListener('click', () => {
+                trainingMessage.textContent = "Вы практикуете искусство исцеления. Сосредоточьтесь на восстановлении, направляя жизненную энергию!";
+                trainingMessage.style.color = '#ffff00';
+                trainingMessage.style.textShadow = '0 0 5px #fff';
+            });
+
+            const characterCards = document.querySelectorAll('.character-card');
+            characterCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
 </body>
 </html>
