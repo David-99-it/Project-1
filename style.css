@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background: linear-gradient(145deg,
@@ -326,4 +330,43 @@ body {
     min-width: 200px;  /* минимальная ширина */
     max-width: 500px;  /* максимальная ширина */
     height: auto;      /* сохраняем пропорции */
+}
+.players{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.players h1{
+    color: #042484;
+    font-family: 'Montserrat', sans-serif;
+}
+.character{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    perspective: 800px; /* создаёт ощущение глубины */
+    margin: 1.5vw; /* адаптивный отступ */
+}
+.character img{
+    width: 20vw;          /* адаптивная ширина */
+    max-width: 225px;     /* максимальная ширина */
+    min-width: 80px;      /* минимальная ширина */
+    height: auto;         /* сохраняем пропорции */
+    border-radius: 10%;
+    transition: transform 0.3s ease 0.4s, /* 0.2s — задержка */
+                box-shadow 0.3s ease 0.4s; /* задержка для тени */
+    cursor: pointer;
+}
+.character img {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Hover — приближение к пользователю */
+.character img:hover {
+    transform: scale(1.3) translateZ(50px); /* увеличиваем и приподнимаем */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); /* тень добавляет эффект объёма */
+    z-index: 10; /* чтобы перекрывало соседние картинки */
 }
