@@ -4,77 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bleach: Тренировочная Площадка</title>
-
-    <!-- Подключаем наш CSS файл -->
-    <link rel="stylesheet" href="../style.css">
-  
+    <link rel="stylesheet" href="style.css">
+    <!-- Или весь CSS ниже будет вставлен сюда -->
     <style>
-        /* --- CSS Стили для Bleach страницы --- */
+        /* --- CSS Стили для Bleach Страницы --- */
 
-        /* --- Стили для фона и общего вида --- */
+        /* --- Общие стили --- */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            color: #333; /* Цвет основного текста */
+            color: #333; /* Основной цвет текста */
 
-            /* Фон: Желто-белый градиент с черным */
+            /* Фон всего сайта: Градиент */
             background: linear-gradient(to bottom right, #fff8dc 0%, #f0e68c 50%, #1a1a1a 100%);
-            /* Или с фоновым изображением (раскомментируйте и добавьте ваше изображение): */
-            /* background-image: url('images/bleach_background_yellow.jpg'); */
-            /* background-color: #fffacd; */
-            /* background-blend-mode: multiply; */
-            /* background-size: cover; */
             background-attachment: fixed; /* Фон не будет двигаться при прокрутке */
         }
-
-        header {
-            background: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный для читаемости */
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #a00 3px solid;
+        section p {
             text-align: center;
+            font-size: 1.1em;
+            color: #f0e68c; /* Замените #ddd на #f0e68c */
+            margin-bottom: 30px;
         }
+        
 
-        header h1 {
-            margin: 0;
-            padding: 0;
-            color: #fff;
-        }
-
-        header nav ul {
-            padding: 0;
-            list-style: none;
-            margin: 0;
-        }
-
-        header nav li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        /* --- Стили для секций --- */
-        .container { 
+        .container {
             width: 90%;
+            max-width: 1200px; /* Ограничиваем максимальную ширину */
             margin: auto;
             overflow: hidden;
-            padding: 20px 0;
-        }
-
-        section {
-            padding: 50px 20px;
-            background-color: rgba(20, 20, 20, 0.8); /* Темный фон для секций */
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            padding: 0 20px; /* Небольшие отступы по бокам */
         }
 
         h1, h2, h3, h4 {
             text-align: center;
             margin-bottom: 20px;
-            color: #fff; /* Белый цвет заголовков */
+            color: #ffdb0c; /* Белый цвет заголовков */
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
@@ -84,29 +50,72 @@
             display: inline-block;
         }
 
+        /* --- Баннер --- */
+        .banner {
+            background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7cbaad78-b934-4415-bef4-50bb8b30603f/da29ur6-9df1e24d-c4c6-48c9-b1b0-aedfc1a7281d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi83Y2JhYWQ3OC1iOTM0LTQ0MTUtYmVmNC01MGJiOGIzMDYwM2YvZGEyOXVyNi05ZGYxZTI0ZC1jNGM2LTQ4YzktYjFiMC1hZWRmYzFhNzI4MWQucG5nIn1dXX0.LamTESpjWM04VQcKkMHTePUdLO81H3cvpQ1lQzfrzQs'); /* !!! ЗАМЕНИТЕ НА ИМЯ ВАШЕЙ КАРТИНКИ !!! */
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding: 150px 20px; /* Увеличиваем верхний отступ */
+            background-position: center 20%; /* Фокусируемся на нижней части картинки */
+            color: #fbff29; /* Цвет текста на баннере */
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: #a00 3px solid;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.6); /* Для лучшей читаемости */
+        }
+
+        .banner h1 {
+            margin: 0;
+            font-size: 3.5em; /* Крупный заголовок баннера */
+        }
+
+        .banner p {
+            font-size: 1.2em;
+            margin-top: 15px;
+            color: #e2c925;
+        }
+
+        /* --- Секции --- */
+        section {
+            background-color: rgba(20, 20, 20, 0.8); /* Темный фон для секций */
+            margin-bottom: 30px;
+            border-radius: 10px;
+            padding: 30px 20px; /* Отступы внутри секций */
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
         /* --- Стили для тренировочной площадки --- */
         .training-area p {
             text-align: center;
             font-size: 1.1em;
-            color: #ddd;
+            color: #dddddd;
+            margin-bottom: 30px;
+        }
+
+        .practice-modes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px; /* Расстояние между кнопками */
             margin-bottom: 30px;
         }
 
         .practice-modes button {
             background: #a00; /* Красная кнопка */
             color: #fff;
-            padding: 12px 20px;
-            margin: 5px;
+            padding: 15px 25px; /* Увеличим размер кнопок */
             border: none;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 1.1em;
             border-radius: 5px;
-            transition: background 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
         }
 
         .practice-modes button:hover {
-            background: #d00; /* Более яркий красный */
-            transform: translateY(-2px);
+            background: #d00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.5);
         }
 
         #training-results {
@@ -116,6 +125,7 @@
             color: #eee;
             text-align: center;
             min-height: 100px;
+            border: 1px solid #555; /* Добавим тонкую границу */
         }
 
         #training-results h3 {
@@ -126,6 +136,7 @@
         #training-message {
             font-size: 1.2em;
             font-weight: bold;
+            color: white;
         }
 
         /* --- Стили для персонажей --- */
@@ -154,8 +165,8 @@
         }
 
         .character-card img {
-            width: 200px; /* Размер картинки, можете изменить */
-            height: 200px; /* Размер картинки, можете изменить */
+            width: 200px; /* Размер картинки */
+            height: 200px; /* Размер картинки */
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
@@ -199,48 +210,52 @@
 
         /* --- Адаптивность --- */
         @media (max-width: 768px) {
-            header nav li {
-                display: block;
-                margin: 10px 0;
+            .banner h1 {
+                font-size: 2.2em;
+            }
+            .banner p {
+                font-size: 1em;
+            }
+            .practice-modes {
+                flex-direction: column;
+                align-items: center;
+            }
+            .practice-modes button {
+                width: 80%; /* Кнопки занимают больше места */
+                padding: 12px 20px;
+                font-size: 1.1em;
             }
             .character-card {
                 width: 80%; /* Карточки занимают 80% ширины на маленьких экранах */
             }
             section {
-                padding: 30px 15px; /* Немного уменьшаем отступы на мобильных */
+                padding: 20px 15px;
             }
         }
         /* --- Конец CSS Стили --- */
     </style>
 </head>
 <body>
-    <!-- === НАЧАЛО КОНТЕНТА BLEACH СТРАНИЦЫ === -->
-    <header>
+    <header class="banner">
         <h1>Bleach: Тренировочная Площадка</h1>
-        <nav>
-            <ul>
-                <li><a href="#training-grounds">Тренировочная Площадка</a></li>
-                <li><a href="#characters">Персонажи</a></li>
-            </ul>
-        </nav>
+        <p>Освойте техники великих воинов и станьте сильнее!</p>
     </header>
 
     <div class="container">
         <section id="training-grounds">
-            <h2>Тренировочная Площадка</h2>
-            <div class="training-area">
-                <p>Добро пожаловать на тренировочную площадку! Здесь вы сможете отточить свои боевые навыки, изучая техники великих воинов.</p>
-                <div class="practice-modes">
-                    <h3>Режимы Тренировки:</h3>
-                    <button id="kihada-training">Тренировка Кихады (Духовной Энергии)</button>
-                    <button id="zanjutsu-training">Тренировка Заньюцу (Мастерства Меча)</button>
-                    <button id="hakkai-training">Тренировка Хакай (Разрушения)</button>
-                    <button id="kaido-training">Тренировка Кайдо (Целительства)</button>
-                </div>
-                <div id="training-results">
-                    <h3>Результаты Тренировки:</h3>
-                    <p id="training-message">Выберите режим тренировки, чтобы начать.</p>
-                </div>
+            <h2>Тренировочные Режимы</h2>
+            <p>Выберите режим тренировки, чтобы отточить свои навыки. Каждая тренировка связана с определенным типом боевой силы.</p>
+            <div class="practice-modes">
+                <!-- Ссылки на мини-игры, связанные с тренировками -->
+                <button id="kihada-training" onclick="window.location.href='games/kihada_game/index.html'">Тренировка Кихады (Духовной Энергии)</button>
+                <button id="zanjutsu-training" onclick="window.location.href='games/zanjutsu_game/index.html'">Тренировка Заньюцу (Мастерства Меча)</button>
+                <button id="hakkai-training" onclick="window.location.href='games/hakkai_game/index.html'">Тренировка Хакай (Разрушения)</button>
+                <button id="kaido-training" onclick="window.location.href='games/kaido_game/index.html'">Тренировка Кайдо (Целительства)</button>
+            </div>
+            <!-- Оставим блок результатов, если он нужен для взаимодействия -->
+            <div id="training-results">
+                <h3>Статус Тренировки:</h3>
+                <p id="training-message">Выберите режим тренировки, чтобы начать.</p>
             </div>
         </section>
 
@@ -248,7 +263,7 @@
             <h2>Боевые Навыки Персонажей</h2>
             <div class="character-list">
                 <div class="character-card">
-                    <img src="https://i.pinimg.com/236x/3c/56/84/3c56846fe03846ea76b6bbc52fd2eb78.jpg" alt="Ичиго Куросаки">
+                    <img src="https://avatars.mds.yandex.net/i?id=1a9f909646b6615bc68f37400d7c5912_l-4612849-images-thumbs&n=13" alt="Ичиго Куросаки">
                     <h3>Ичиго Куросаки</h3>
                     <h4>Основные Навыки:</h4>
                     <ul>
@@ -291,40 +306,29 @@
     </div>
 
     <footer>
-        <p>&copy; 2023 Bleach Fan Site. Все права защищены.</p>
+        <p>&copy; 2025 Bleach Fan Site. Все права защищены.</p>
     </footer>
-    <!-- === КОНЕЦ КОНТЕНТА BLEACH СТРАНИЦЫ === -->
 
+    <!-- JavaScript код для интерактивности -->
     <script>
-        /* --- JavaScript для Bleach страницы --- */
         document.addEventListener('DOMContentLoaded', () => {
             const trainingMessage = document.getElementById('training-message');
-            const kihadaButton = document.getElementById('kihada-training');
-            const zanjutsuButton = document.getElementById('zanjutsu-training');
-            const hakkaiButton = document.getElementById('hakkai-training');
-            const kaidoButton = document.getElementById('kaido-training');
 
-            kihadaButton.addEventListener('click', () => {
-                trainingMessage.textContent = "Вы практикуете контроль духовной энергии. Представьте, как она наполняет вас, готовясь к мощным атакам!";
-                trainingMessage.style.color = '#00cc00';
-            });
+            // Обработчики для кнопок тренировок
+            // Они теперь просто перенаправляют на соответствующие страницы игр
+            // перед перенаправлением, или после возвращения, можно использовать такой подход:
+            // document.getElementById('kihada-training').addEventListener('click', () => {
+            //     trainingMessage.textContent = "Подготовка к тренировке Кихады...";
+            //     // Затем через setTimeout можно сделать переход
+            //     setTimeout(() => {
+            //         window.location.href = 'games/kihada_game/index.html';
+            //     }, 1000); // 1 секунда задержки
+            // });
+            // ... и так для остальных кнопок
 
-            zanjutsuButton.addEventListener('click', () => {
-                trainingMessage.textContent = "Вы оттачиваете владение мечом. Каждый взмах, каждый блок - шаг к совершенству!";
-                trainingMessage.style.color = '#0099cc';
-            });
-
-            hakkaiButton.addEventListener('click', () => {
-                trainingMessage.textContent = "Вы концентрируете энергию для разрушения. Пусть ваша сила сметает все препятствия!";
-                trainingMessage.style.color = '#cc0000';
-            });
-
-            kaidoButton.addEventListener('click', () => {
-                trainingMessage.textContent = "Вы практикуете искусство исцеления. Сосредоточьтесь на восстановлении, направляя жизненную энергию!";
-                trainingMessage.style.color = '#ffff00';
-                trainingMessage.style.textShadow = '0 0 5px #fff';
-            });
-
+            // На данный момент, кнопки просто перенаправляют при клике благодаря onclick в HTML
+            // Оставляем этот блок для будущих интерактивных элементов, если нужны
+            // Пример для анимации карточек персонажей (если хотите)
             const characterCards = document.querySelectorAll('.character-card');
             characterCards.forEach((card, index) => {
                 card.style.opacity = '0';

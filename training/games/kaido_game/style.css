@@ -1,0 +1,152 @@
+/* Стили для страницы Тренировки Кайдо */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #ddd;
+    background: linear-gradient(to bottom right, #2a5a2a 0%, #407a40 50%, #1a301a 100%); /* Зеленый/темно-зеленый градиент */
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    background: rgba(10, 30, 10, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+    padding: 30px 20px;
+    border: 2px solid #3a8a3a; /* Зеленая граница */
+}
+
+header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #2a6a2a;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px #5aff5a; /* Светящийся эффект */
+}
+
+header p {
+    font-size: 1.1em;
+    color: #ccc;
+}
+
+.back-button {
+    display: inline-block;
+    background: #2a6a2a;
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+
+.back-button:hover {
+    background: #3a8a3a;
+}
+
+/* --- Игровая область --- */
+#game-area {
+    padding: 20px;
+    position: relative;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 1px solid #446644;
+    overflow: hidden;
+}
+
+#kaido-message {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: #eee;
+    position: relative;
+    z-index: 10;
+}
+
+#start-kaido {
+    background: #3a8a3a; /* Зеленый */
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
+    position: relative;
+    z-index: 10;
+}
+
+#start-kaido:hover {
+    background: #4ab64a;
+    transform: translateY(-3px);
+}
+
+#health-display, #healed-display, #healing-points-display {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #5aff5a; /* Яркий зеленый */
+    text-shadow: 0 0 8px #5aff5a;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Элементы для исцеления --- */
+.healing-zone {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 0, 0, 0.4); /* Полупрозрачная красная зона */
+    border: 2px dashed #ff8888;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: pulse-healing 1.2s infinite alternate;
+    z-index: 5; /* Под кнопками, но над фоном */
+}
+
+@keyframes pulse-healing {
+    from { transform: scale(0.95); opacity: 0.7; }
+    to { transform: scale(1.05); opacity: 0.9; }
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 600px) {
+    .game-container {
+        width: 95%;
+        padding: 20px 15px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    #start-kaido {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+    #health-display, #healed-display, #healing-points-display {
+        font-size: 1.3em;
+    }
+    #game-area {
+        height: 300px;
+    }
+}
