@@ -1,0 +1,137 @@
+/* Стили для страницы Тренировки Заньюцу */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #ddd; /* Светлый текст */
+    background: linear-gradient(to bottom right, #4a2a2a 0%, #6a4040 50%, #2a1a1a 100%); /* Темно-красный/коричневый градиент */
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    background: rgba(20, 10, 10, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+    padding: 30px 20px;
+    border: 2px solid #8a3a3a; /* Красно-коричневая граница */
+}
+
+header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #6a3a3a;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px #aa5a5a; /* Светящийся эффект */
+}
+
+header p {
+    font-size: 1.1em;
+    color: #ccc;
+}
+
+.back-button {
+    display: inline-block;
+    background: #4a2a2a; /* Темно-красный */
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+
+.back-button:hover {
+    background: #6a3a3a;
+}
+
+/* --- Игровая область --- */
+#game-area {
+    padding: 20px;
+    position: relative; /* Важно для позиционирования мишеней */
+}
+
+#zanjutsu-message, #target-instruction {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: #eee;
+}
+
+#start-zanjutsu {
+    background: #8a3a3a; /* Красно-коричневый */
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#start-zanjutsu:hover {
+    background: #aa5a5a;
+    transform: translateY(-3px);
+}
+
+#accuracy-display, #combo-display {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #aa5a5a; /* Яркий красно-коричневый */
+    text-shadow: 0 0 8px #aa5a5a;
+}
+
+/* --- Мишени (для игры) --- */
+.target {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #ffcc00; /* Желтая мишень */
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ffcc00;
+    animation: pulse 1s infinite alternate; /* Анимация пульсации */
+}
+
+@keyframes pulse {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(1.1); opacity: 0.7; }
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 600px) {
+    .game-container {
+        width: 95%;
+        padding: 20px 15px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    #start-zanjutsu {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+    #accuracy-display, #combo-display {
+        font-size: 1.3em;
+    }
+}

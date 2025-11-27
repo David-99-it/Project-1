@@ -1,0 +1,173 @@
+/* Стили для страницы Тренировки Хакай */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #ddd;
+    background: linear-gradient(to bottom right, #6a1a1a 0%, #aa3a3a 50%, #3a1a1a 100%); /* Темно-красный/черный градиент */
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    background: rgba(30, 10, 10, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+    padding: 30px 20px;
+    border: 2px solid #aa3a3a; /* Темно-красная граница */
+}
+
+header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #8a2a2a;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px #ff5a5a; /* Светящийся эффект */
+}
+
+header p {
+    font-size: 1.1em;
+    color: #ccc;
+}
+
+.back-button {
+    display: inline-block;
+    background: #8a2a2a;
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+
+.back-button:hover {
+    background: #aa3a3a;
+}
+
+/* --- Игровая область --- */
+#game-area {
+    padding: 20px;
+    position: relative; /* Для позиционирования объектов */
+    height: 400px; /* Фиксированная высота игровой зоны */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 1px solid #555;
+    overflow: hidden; /* Важно для ограничения объектов */
+}
+
+#hakkai-message {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: #eee;
+    position: relative; /* Чтобы не улетало вниз */
+    z-index: 10; /* Поверх других объектов */
+}
+
+#start-hakkai {
+    background: #aa3a3a; /* Темно-красный */
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
+    position: relative; /* Чтобы было выше игровых объектов */
+    z-index: 10;
+}
+
+#start-hakkai:hover {
+    background: #aa5a5a;
+    transform: translateY(-3px);
+}
+
+#score-display, #targets-left-display {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #ff5a5a; /* Яркий красный */
+    text-shadow: 0 0 8px #ff5a5a;
+    position: relative; /* Для z-index */
+    z-index: 10;
+}
+
+/* --- Объекты для разрушения --- */
+.destroyable-object {
+    position: absolute;
+    background-color: #c0c0c0; /* Серый объект */
+    border: 2px solid #808080;
+    box-shadow: 0 0 10px #c0c0c0;
+    cursor: pointer;
+    animation: shake 1s infinite alternate; /* Анимация дрожания */
+}
+
+.destroyable-object.type-rock {
+    width: 60px;
+    height: 60px;
+    /* background-image: url('rock.png'); */ /* Если есть картинка */
+    background-size: cover;
+    background-color: transparent; /* Убираем серый фон, если есть картинка */
+    border: none;
+    box-shadow: none;
+}
+
+.destroyable-object.type-crystal {
+    width: 40px;
+    height: 40px;
+    background: #00ffff; /* Синий кристалл */
+    border: 1px solid #00aaaa;
+    box-shadow: 0 0 10px #00ffff;
+    animation: shimmer 1.5s infinite alternate;
+}
+
+@keyframes shake {
+    from { transform: translate(0px, 0px); }
+    to { transform: translate(5px, 5px); }
+}
+
+@keyframes shimmer {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0.7; transform: scale(1.1); }
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 600px) {
+    .game-container {
+        width: 95%;
+        padding: 20px 15px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    #start-hakkai {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+    #score-display, #targets-left-display {
+        font-size: 1.3em;
+    }
+    #game-area {
+        height: 300px; /* Уменьшаем высоту на мобильных */
+    }
+}

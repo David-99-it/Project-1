@@ -1,0 +1,138 @@
+/* Стили для страницы Тренировки Кихады */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #ddd; /* Светлый текст */
+    background: linear-gradient(to bottom right, #2a2a4a 0%, #3a407a 50%, #1a1a30 100%); /* Темно-синий/фиолетовый градиент */
+    background-attachment: fixed;
+    display: flex; /* Центрируем содержимое */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Полная высота видимой области */
+}
+
+.game-container {
+    background: rgba(10, 10, 30, 0.9); /* Темный фон контейнера */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    width: 90%; /* Ширина контейнера */
+    max-width: 700px; /* Максимальная ширина */
+    text-align: center;
+    padding: 30px 20px;
+    border: 2px solid #5a5aad; /* Фиолетовая граница */
+}
+
+header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #4a407a;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px #7a7aff; /* Светящийся эффект */
+}
+
+header p {
+    font-size: 1.1em;
+    color: #ccc;
+}
+
+.back-button {
+    display: inline-block;
+    background: #8a2a2a; /* Красный */
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+
+.back-button:hover {
+    background: #aa3a3a;
+}
+
+/* --- Игровая область --- */
+#game-area {
+    padding: 20px;
+}
+
+#kihada-message {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: #eee;
+}
+
+#start-kihada {
+    background: #5a5aad; /* Фиолетовый */
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#start-kihada:hover {
+    background: #7a7aff;
+    transform: translateY(-3px);
+}
+
+#energy-display {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #7a7aff; /* Яркий фиолетовый */
+    text-shadow: 0 0 10px #7a7aff;
+}
+
+/* --- Прогресс бар --- */
+#progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: #2a2a4a; /* Темный фон */
+    border-radius: 15px;
+    border: 2px solid #5a5aad;
+    margin-top: 20px;
+    overflow: hidden; /* Чтобы прогресс не выходил за рамки */
+}
+
+#progress {
+    height: 100%;
+    width: 0%; /* Начинаем с 0% */
+    background: linear-gradient(to right, #7a7aff, #aabfff); /* Градиент энергии */
+    border-radius: 15px 0 0 15px; /* Закругление слева */
+    transition: width 0.2s ease-out; /* Плавное изменение ширины */
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 600px) {
+    .game-container {
+        width: 95%;
+        padding: 20px 15px;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    #start-kihada {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+    #energy-display {
+        font-size: 1.5em;
+    }
+}
