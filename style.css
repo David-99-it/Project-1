@@ -343,15 +343,16 @@ body {
 .character{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
     perspective: 800px; /* создаёт ощущение глубины */
     margin: 1.5vw; /* адаптивный отступ */
 }
 .character img{
-    width: 20vw;          /* адаптивная ширина */
+    width: 25vh;          /* адаптивная ширина */
     max-width: 225px;     /* максимальная ширина */
     min-width: 80px;      /* минимальная ширина */
-    height: auto;         /* сохраняем пропорции */
+    height: 25vh;         /* сохраняем пропорции */
     border-radius: 10%;
     transition: transform 0.3s ease 0.4s, /* 0.2s — задержка */
                 box-shadow 0.3s ease 0.4s; /* задержка для тени */
@@ -370,7 +371,7 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); /* тень добавляет эффект объёма */
     z-index: 10; /* чтобы перекрывало соседние картинки */
 }
-#shido h2, #nagi h2, #sae h2, #baro h2{
+#shido h2, #nagi h2, #sae h2, #baro h2, #charles-chevalier h2{
     color:#32CD32;
 }
 #reo h2{
