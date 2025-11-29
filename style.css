@@ -17,9 +17,30 @@ body {
     align-items: center;
     flex-direction: column;
 }
+.main_body{
+     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Градиент, сочетающий синие тона Blue Lock и оранжево-тёмные цвета Bleach */
+    background: linear-gradient(
+        145deg,
+        #000000 0%,     /* общий тёмный стиль обоих */
+        #0a1a3a 25%,    /* тёмно-синий — Blue Lock */
+        #0f4fb8 45%,    /* ярко-синий — Blue Lock */
+        #ff5e00 70%,    /* оранжевый — Bleach */
+        #ff8f3f 100%    /* светло-оранжевый — Bleach */
+    );
+
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff; /* нейтральный белый текст */
+}
 .bluelock-text {
     font-family: 'Arial Black', sans-serif; /* жирный шрифт */
-    font-size: 72px;
+    font-size: 52px;
     color: #1A73E8; /* насыщенный синий цвет */
     text-transform: uppercase;
     letter-spacing: 5px;
@@ -27,8 +48,76 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 2px 2px 0 #0A2C5F, 4px 4px 0 #dbe8ff; /* имитация рваного/объемного эффекта */
-    padding: 10px 20px;
+    margin: 20px;
 }
+.bleach-text {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 52px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
+    /* Градиент как у логотипа Bleach */
+    background: linear-gradient(180deg, #FF4500 0%, #FF7A00 40%, #FFC36A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Тень в стиле огненного контура из Bleach */
+    text-shadow: 
+        2px 2px 0 #000000, 
+        4px 4px 0 #2b2b2b;
+
+    margin: 20px;
+}
+.and {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+
+    /* Тёмный перелив — как духовное давление */
+    background: linear-gradient(180deg, #0A0A0A 0%, #2E2E2E 40%, #5A5A5A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Глубокая тень как у масок Холлоу */
+    text-shadow: 
+        2px 2px 0 #000000,
+        6px 6px 10px rgba(0, 0, 0, 0.7);
+
+    margin: 20px;
+}
+
+.fandom-text {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 52px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
+    /* Контрастный градиент: ледяной Blue Lock → огненный Bleach */
+    background: linear-gradient(
+        180deg,
+        #4DA1FF 0%,      /* светлый синий */
+        #0D47A1 45%,     /* темный синий */
+        #FF4500 75%,     /* ярко-оранжевый */
+        #FF9B55 100%     /* теплый светлый оттенок */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Более яркая тень для читаемости */
+    text-shadow:
+        3px 3px 0 #0B3A7A,           /* насыщенная синяя тень */
+        6px 6px 15px rgba(0,0,0,0.7); /* сильное затемнение для контраста */
+
+    margin: 20px;
+}
+
+.text{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
